@@ -1,0 +1,31 @@
+﻿@using bootstrap1.Models.EntityFramework
+@model List<Orders>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+<a class="btn btn-primary" href="/Home/Yeni">Yeni istifadeci</a>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th> ID</th>
+            <th> AD</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.OrderID</td>
+                <td>@item.ShipName</td>
+                <td> <a class="btn btn-primary" href="/Home/Update/@item.OrderID">Yenile</a></td>
+                <td> <a class="btn btn-warning" href="/Home/Delete/@item.OrderID">Sil</a></td>
+            </tr>
+        }
+
+
+    </tbody>
+
+</table>
